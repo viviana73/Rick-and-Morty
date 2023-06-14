@@ -9,7 +9,7 @@ import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Detail from './components/Detail/Detail';
 import Form from './components/form/Form';
 import { useEffect } from 'react';
-
+import Favorites from './components/favorites/Favorites';
 
 function App() {
    const {pathname}= useLocation()
@@ -58,7 +58,7 @@ function App() {
          <Route path='/about' element={<About/>} />
          <Route path='/home' element = {<Cards characters={characters} onClose={onClose}/>}/>
          <Route path='/detail/:id' element={<Detail/>}/>
-         <Route path='/favorites' element={<favorites/>} />
+         <Route path='/favorites' element={<Favorites/>} />
        </Routes>
         
          

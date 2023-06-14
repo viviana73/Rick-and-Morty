@@ -12,7 +12,7 @@ import { addFav, removeFav } from '../redux/action/action';
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [myFavorites, id]);
 
     function handleFavorite(){
       if(isFav){
@@ -37,6 +37,7 @@ import { addFav, removeFav } from '../redux/action/action';
            )
          }
           <img src={image} className= {style.image} alt='name'/>
+          <h2>{id}</h2>
           <Link to={`/detail/${id}`}><h2>Name:{name}</h2></Link>
          <h2>especie:{species}</h2>
          <h2>genero:{gender}</h2>

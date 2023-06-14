@@ -1,11 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Card from '../cards/Cards'
+import Card from '../card/Card'
+import { filterCards, orderCards } from '../redux/action/action'
+import { useDispatch } from 'react-redux'
 
-function favorites({myFavorites}) {
-  return (
-    <div>{myFavorites.map(({id, name, species, gender, image, status, origin})=>
-                 (<Card
+function Favorites({myFavorites}) {
+	const dispatch = useDispatch();
+	const handleOrder = (evento) =>{
+		dispatch(orderCards(evento.target.value))
+	}
+	const handleFilter = (evento) =>{
+		dispatch(filterCards(evento.target.value))
+	}
+  return (<div>
+	     <div>
+			<select name='order' onChange={handleOrder}>
+				<option value="A">A</option>
+				<option value="D">D</option>
+			</select>
+			<select name='filter' onChange={handleFilter}>
+				<option value= 'All'>All</option>
+				<option value= 'Male'>Male</option>
+				<option value= 'Female'>Female</option>
+				<option value= 'Genderless'>Genderless</option>
+				<option value= 'unknown'>unknown</option>
+			</select>
+		 </div>
+	     <div>{myFavorites.map(({id, name, species, gender, image, status, origin})=>
+                 (<Card 
 						key={id}
 						id={id}
 						name={name}
@@ -15,11 +37,13 @@ function favorites({myFavorites}) {
 						origin={origin.name}
 						image={image}
 					/>))}</div>
+  </div>
+  
   )
 }
-export function mapStateToProops(state){
+export function mapStateToProps(state){
     return{
         myFavorites: state.myFavorites
     }
 }
-export default connect(mapStateToProops)(favorites);
+export default connect(mapStateToProps, null)(Favorites);
