@@ -1,0 +1,17 @@
+.App {
+   
+      text-align: center;
+      background-image: url('./rick-1.jpg');
+      margin: 0;
+      padding: 0;
+      background-repeat: no-repeat;
+      background-size: over;
+      background-attachment: fixed;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    
+}
+
+
