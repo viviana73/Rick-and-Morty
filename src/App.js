@@ -127,7 +127,7 @@ function App() {
   };
 
   const onClose = id => {
-    setCharacters(characters.filter(char => char.id !== Number(id)));
+    setCharacters(characters.filter(char => Number(char.id) !== Number(id)));
   };
 
   return (

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Card from '../card/Card'
-import { filterCards, orderCards } from '../redux/action/action'
+import { filterCards, orderCards, getFav } from '../redux/action/action'
 import { useDispatch } from 'react-redux'
 
 function Favorites({myFavorites}) {
 	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getFav())
+	}, [])
 	const handleOrder = (evento) =>{
 		dispatch(orderCards(evento.target.value))
 	}
